@@ -60,7 +60,7 @@
   /* Estilos adicionales del contenido */
 }
   
-  /* Estilos adicionales para hacerlo responsive */
+  /* MEDIA QUERIES */
   @media (max-width: 500px) {
     .menu {
       width: 20%;
