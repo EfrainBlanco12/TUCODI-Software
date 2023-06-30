@@ -1,0 +1,8 @@
+.wrapper{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    background-color: #F0F2F5;
+    height: 100%;
+    flex-wrap: nowrap;
+}

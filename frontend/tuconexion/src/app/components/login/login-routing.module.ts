@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import * as router from '@angular/router';
+
+import { InitialComponent} from "./initial/initial.component";
 import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
 import { VerificarCorreoComponent } from './verificar-correo/verificar-correo.component';
-import {InitialComponent} from "./initial/initial.component";
 
 
+// Rutas hijas del Login
 const routesLogin: router.Routes = [
   {path: '',
    children:[
