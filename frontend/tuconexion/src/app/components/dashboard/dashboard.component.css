@@ -56,7 +56,8 @@
 }
   
 .contenido {
-  margin-left: 100px; /* Para dejar espacio al menú */
+  margin-left: 100px;
+  background: none; /* Para dejar espacio al menú */
   /* Estilos adicionales del contenido */
 }
   

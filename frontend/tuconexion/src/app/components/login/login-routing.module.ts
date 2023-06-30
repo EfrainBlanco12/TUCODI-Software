@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import * as router from '@angular/router';
 import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
 import { VerificarCorreoComponent } from './verificar-correo/verificar-correo.component';
-import { FormularioComponent } from './formulario/formulario.component';
 import {InitialComponent} from "./initial/initial.component";
 
 
-const routesLogin: Routes = [
-  {path: '', component: InitialComponent}
+const routesLogin: router.Routes = [
+  {path: '',
+   children:[
+    {path: '', component: InitialComponent},
+    {path: 'recuperar-password', component: RecuperarPasswordComponent},
+    {path: 'verificar-correo', component: VerificarCorreoComponent},
+    {path: '**', redirectTo:'login',pathMatch:'full'}
+   ]}
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routesLogin)],
-  exports: [RouterModule]
+  imports: [router.RouterModule.forChild(routesLogin)],
+  exports: [router.RouterModule]
 })
 export class LoginRoutingModule { }
