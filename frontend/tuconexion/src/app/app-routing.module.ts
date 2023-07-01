@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core';
 import * as router from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 
 const routes: router.Routes = [
   {path: '', redirectTo: '/login', pathMatch: "full"},
@@ -9,7 +11,9 @@ const routes: router.Routes = [
 
 
 @NgModule({
-  imports: [router.RouterModule.forRoot(routes)],
+  imports: [
+    CommonModule,
+    router.RouterModule.forRoot(routes)],
   exports: [router.RouterModule]
 })
 export class AppRoutingModule {

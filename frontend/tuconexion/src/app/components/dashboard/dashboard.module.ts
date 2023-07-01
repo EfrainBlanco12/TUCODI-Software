@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { InitialDashComponent } from './initial-dash/initial-dash.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { ClienteModule } from './cliente/cliente.module';
 
 
 
@@ -15,7 +16,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    ClienteModule
   ]
 })
 export class DashboardModule { }

@@ -26,7 +26,14 @@ header{
 .nav-list li a{
     text-decoration: none;
     color: #1c1c1c;
-    
+    border-radius: 15px;
+    transition: background-color 0.8s ease; /* Transición suave */
+}
+
+.nav-list li a:hover{
+    background-color: rgba(62, 187, 245, 0.315);
+    padding: 0.7rem;
+    border-radius: 15px;
 }
 
 .abrir-menu,.cerrar-menu{

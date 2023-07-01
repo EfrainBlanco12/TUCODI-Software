@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import * as router from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 
 import { InitialComponent} from "./initial/initial.component";
 import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
@@ -18,7 +20,10 @@ const routesLogin: router.Routes = [
 ];
 
 @NgModule({
-  imports: [router.RouterModule.forChild(routesLogin)],
+  imports: [
+    CommonModule,
+    router.RouterModule.forChild(routesLogin)],
   exports: [router.RouterModule]
 })
+
 export class LoginRoutingModule { }

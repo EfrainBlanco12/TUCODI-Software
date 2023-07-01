@@ -9,12 +9,15 @@ const routesDashboard: router.Routes = [
   {path: '',
    children:[
     {path: '', component: InitialDashComponent},
-    {path: 'dashboard/**', redirectTo:'dashboard',pathMatch:'full'}
+    {path: 'cliente', loadChildren: () => import('../dashboard/cliente/cliente.module').then(r => r.ClienteModule)},
+    {path: '**', redirectTo:'dashboard',pathMatch:'full'}
    ]}
 ];
 
 @NgModule({
-  imports: [router.RouterModule.forChild(routesDashboard)],
+  imports: [
+    CommonModule,
+    router.RouterModule.forChild(routesDashboard)],
   exports: [router.RouterModule]
 })
 

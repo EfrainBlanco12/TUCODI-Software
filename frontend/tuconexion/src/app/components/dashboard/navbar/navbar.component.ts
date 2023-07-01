@@ -14,6 +14,7 @@ export class NavbarComponent {
     }
   }
 
+  // BUG - Al hacer uso de esta funcion y expandir la pagina no salen los elementos de la lista menu
   cerrarMenu() {
     const nav: HTMLElement | null = document.querySelector("#nav");
     if (nav) {
