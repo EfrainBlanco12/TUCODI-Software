@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 
 export class NavbarComponent {
+  
   abrirMenu() {
     const nav: HTMLElement | null = document.querySelector("#nav");
     if (nav) {

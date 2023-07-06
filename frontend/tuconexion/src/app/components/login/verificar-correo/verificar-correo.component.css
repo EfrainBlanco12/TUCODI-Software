@@ -31,5 +31,5 @@
     opacity: 1;
     transition: 0.3s;
 }
-  
+
 .boton:hover {opacity: 0.6; color: white;}

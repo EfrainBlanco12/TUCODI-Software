@@ -1,0 +1,47 @@
+<div class="warper">
+    <div class="container">
+        <div class="clientes">
+            <div class="header">
+                <img class= "logo" routerLink="/dashboard" src="../../../../../assets/img/back.png" alt="back">
+                <h2>Clientes</h2>
+                <button class="boton" routerLink="/dashboard/cliente/crear">crear</button>
+                <img class= "logo" routerLink="/dashboard" src="../../../../../assets/img/closeBlack.png" alt="close">
+            </div>
+            <!-- FORMULARIO -->
+            <form action="">
+                <!-- INPUT SELECCIONAR CARGO -->
+                <div class="form">
+                <select class="select" [(ngModel)] = "viviendas.id_barrio">
+                    <option *ngFor = "let barrio of barrios" [value] = "barrio.id">{{barrio.nombre}}</option>
+                </select>
+            </div>
+            <!-- INPUT INGRESAR CORREO -->
+            <div class="form">
+                <label for="">Dirección</label> <br>
+                <input type="email" id="email">
+            </div>
+            <!-- INPUT INGRESAR CONRASEÑA -->
+            <div class="form">
+                <label for="">Fachada</label> <br>
+                <input class="file" type="file" accept="image/*">
+            </div>
+            <div class="form">
+                <label for="">Coordenada</label> <br>
+                <input type="text">
+            </div>
+            <div class="form">
+                <label for="">Numero de piso</label> <br>
+                <input type="text">
+            </div>   
+            <!-- BOTÓN DE INGRESAR -->
+            <div class="form">
+                <button (click) = "guardarVivienda()">Guardar</button>
+            </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+

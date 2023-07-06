@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { DashboardModule } from './components/dashboard/dashboard.module';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { LoginModule } from './components/login/login.module';
+import { ClienteModule } from './components/dashboard/cliente/cliente.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { LoginModule } from './components/login/login.module';
     BrowserModule,
     AppRoutingModule,
     LoginModule,
-    DashboardModule
+    DashboardModule,
+    ClienteModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

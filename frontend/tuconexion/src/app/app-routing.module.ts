@@ -4,9 +4,15 @@ import { CommonModule } from '@angular/common';
 
 
 const routes: router.Routes = [
-  {path: '', redirectTo: '/login', pathMatch: "full"},
-  {path: 'login', loadChildren: () => import('../app/components/login/login.module').then(r => r.LoginModule)},
-  {path: 'dashboard', loadChildren: () => import('../app/components/dashboard/dashboard.module').then(r => r.DashboardModule)}
+  {path: '', 
+  redirectTo: '/login', pathMatch: "full"},
+
+  {path: 'login', 
+  loadChildren: () => import('../app/components/login/login.module').then(r => r.LoginModule)},
+
+  {path: 'dashboard', 
+  loadChildren: () => import('../app/components/dashboard/dashboard.module').then(r => r.DashboardModule)},
+
 ];
 
 

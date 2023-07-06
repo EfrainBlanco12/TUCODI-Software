@@ -1,21 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CrudComponent } from './cliente/crud/crud.component';
-import { CrearComponent } from './cliente/crear/crear.component';
-import { InitialClienteComponent } from './cliente/initial-cliente/initial-cliente.component';
+import { InitialClienteComponent } from './initial-cliente/initial-cliente.component';
+import { CrudComponent } from './crud/crud.component';
+import { CrearComponent } from './crear/crear.component';
 import { ClienteRoutingModule } from './cliente-routing.module';
+import { EditarComponent } from './editar/editar.component';
+
 
 
 
 @NgModule({
   declarations: [
+    InitialClienteComponent,
     CrudComponent,
     CrearComponent,
-    InitialClienteComponent
+    EditarComponent
   ],
   imports: [
     CommonModule,
     ClienteRoutingModule
+  ],
+  exports:[
+    InitialClienteComponent,
+    CrudComponent,
+    CrearComponent
   ]
 })
 export class ClienteModule { }

@@ -6,6 +6,7 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { InitialComponent } from './initial/initial.component';
 import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
 import { VerificarCorreoComponent } from './verificar-correo/verificar-correo.component';
+import { DashboardModule } from '../dashboard/dashboard.module';
 
 
 @NgModule({
@@ -18,6 +19,13 @@ import { VerificarCorreoComponent } from './verificar-correo/verificar-correo.co
   imports: [
     CommonModule,
     LoginRoutingModule,
+    DashboardModule
+  ],
+  exports:[
+    InitialComponent,
+    FormularioComponent,
+    VerificarCorreoComponent,
+    RecuperarPasswordComponent
   ]
 })
 export class LoginModule { }

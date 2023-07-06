@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent {
+  constructor(private router: Router) {}
 
+  mostrar =  false;
+  Login(){
+    this.mostrar=true;
+    this.router.navigate(['/dashboard']);
+  }
 }

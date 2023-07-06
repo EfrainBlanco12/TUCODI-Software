@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./initial.component.css']
 })
 export class InitialComponent {
-  mostrar =  false;
-  FunctionRecuperarPassword(){
-    this.mostrar=true;
-  }
+  // mostrar =  false;
+  // FunctionRecuperarPassword(){
+  //   this.mostrar=true;
+  // }
 }

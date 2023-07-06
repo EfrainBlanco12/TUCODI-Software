@@ -8,9 +8,14 @@ import { InitialDashComponent } from './initial-dash/initial-dash.component';
 const routesDashboard: router.Routes = [
   {path: '',
    children:[
-    {path: '', component: InitialDashComponent},
-    {path: 'cliente', loadChildren: () => import('../dashboard/cliente/cliente.module').then(r => r.ClienteModule)},
-    {path: '**', redirectTo:'dashboard',pathMatch:'full'}
+    {path: '', 
+    component: InitialDashComponent},
+
+    {path: 'cliente', 
+    loadChildren: () => import('../dashboard/cliente/cliente.module').then(r => r.ClienteModule)},
+
+    {path: '**', 
+    redirectTo:'dashboard',pathMatch:'full'}
    ]}
 ];
 
