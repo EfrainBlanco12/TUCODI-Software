@@ -5,6 +5,7 @@ import { CrudComponent } from './crud/crud.component';
 import { CrearComponent } from './crear/crear.component';
 import { ClienteRoutingModule } from './cliente-routing.module';
 import { EditarComponent } from './editar/editar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +19,9 @@ import { EditarComponent } from './editar/editar.component';
   ],
   imports: [
     CommonModule,
-    ClienteRoutingModule
+    ClienteRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     InitialClienteComponent,

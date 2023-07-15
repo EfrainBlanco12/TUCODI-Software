@@ -5,12 +5,20 @@ import cors from "cors"
 
 import viviendasRoutes from "../routes/vivienda"
 import barriosRoutes from "../routes/barrio"
+import clienteRoutes from "../routes/cliente"
+import instalacionRoutes from "../routes/instalacion"
+import estadoRoutes from "../routes/estado"
+import planRoutes from "../routes/plan"
 
 export class Index {
     private app: Application
     private PORT: String
 
     private routes = {
+        planes: "/api/planes",
+        estado: "/api/estados",
+        instalaciones: "/api/instalaciones",
+        clientes: "/api/clientes",
         viviendas: "/api/viviendas",
         barrios: "/api/barrios"
     }
@@ -44,6 +52,10 @@ export class Index {
     }
 
     Routes(){
+        this.app.use(this.routes.planes,planRoutes)
+        this.app.use(this.routes.estado,estadoRoutes)
+        this.app.use(this.routes.instalaciones,instalacionRoutes)
+        this.app.use(this.routes.clientes,clienteRoutes)
         this.app.use(this.routes.viviendas,viviendasRoutes)
         this.app.use(this.routes.barrios,barriosRoutes)
     }

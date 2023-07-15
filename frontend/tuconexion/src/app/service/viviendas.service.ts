@@ -14,7 +14,11 @@ export class ViviendasService {
     private http: HttpClient
   ){}
 
-  postViviendas(
+  getVivienda(){
+    return this.http.get(this.endpoint + "/api/viviendas").pipe(map(r => {return r as any[]}))
+  } 
+
+  postVivienda(
     vivienda: viviendaModel
   ){
     return this.http.post(this.endpoint + "/api/viviendas", vivienda).pipe(map(r => {return r as viviendaModel}))

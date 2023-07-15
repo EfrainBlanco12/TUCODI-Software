@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { viviendaModel } from 'src/app/modelos/vivienda.modelo';
-import { BarriosService } from 'src/app/service/barrios.service';
-import { ViviendasService } from 'src/app/service/viviendas.service';
-
+import { clienteModel } from 'src/app/modelos/cliente.modelo';
+import { ClientesService } from 'src/app/service/clientes.service';
 
 
 @Component({
@@ -10,23 +8,52 @@ import { ViviendasService } from 'src/app/service/viviendas.service';
   templateUrl: './crud.component.html',
   styleUrls: ['./crud.component.css']
 })
+export class CrudComponent implements OnInit {
 
-export class CrudComponent implements OnInit{
+  // items: string[] = []; // Lista de elementos
+  // searchText: string = ''; // Texto de búsqueda
 
-  barrios: any[] = []
-  vivienda: viviendaModel = new viviendaModel();
+  // filteredItems: string[] = []; // Lista filtrada de elementos
 
-  constructor(
-    private barriosServices: BarriosService, // Llamamos el servicio BarriosServices
-    private viviendaServices: ViviendasService // Llamamos al servicio VIviendaServices 
-  ){}
+  // constructor() { }
+
+  // ngOnInit() {
+  //   // Inicializar la lista de elementos
+  //   this.items = ['Elemento 1', 'Elemento 2', 'Elemento 3', 'Elemento 4'];
+  //   // Inicializar la lista filtrada con todos los elementos
+  //   this.filteredItems = [...this.items];
+  // }
+
+  // filterItems() {
+  //   // Filtrar la lista de elementos basado en el texto de búsqueda
+  //   this.filteredItems = this.items.filter(item =>
+  //     item.toLowerCase().includes(this.searchText.toLowerCase())
+  //   );
+  // }
+
+  listaClientes: clienteModel [] = [];
+  searchText: string = ''; // Texto de búsqueda
+  filteredItems: any[] = []; // Lista filtrada de elementos
+
+  constructor 
+  (
+    private clienteService: ClientesService
+  ) {}
 
   ngOnInit(){
-    this.barriosServices.getBarrios().subscribe(r => {this.barrios = r})
-    
+    // Inicializar la lista de elementos
+    this.clienteService.getCliente().subscribe(r => {
+      this.listaClientes = r;
+    });
+
+    this.filteredItems = this.listaClientes.map(cliente => cliente.id)
   }
 
-  guardarVivienda(){
-    this.viviendaServices.postViviendas(this.vivienda).subscribe()
+  filterItems() {
+    // Filtrar los IDs basado en el texto de búsqueda
+    this.filteredItems = this.listaClientes
+    .filter(cliente => cliente.id.toString().includes(this.searchText))
+    .map(cliente => cliente.id);
   }
+  
 }

@@ -18,9 +18,17 @@ const connectiondb_1 = __importDefault(require("../db/connectiondb"));
 const cors_1 = __importDefault(require("cors"));
 const vivienda_1 = __importDefault(require("../routes/vivienda"));
 const barrio_1 = __importDefault(require("../routes/barrio"));
+const cliente_1 = __importDefault(require("../routes/cliente"));
+const instalacion_1 = __importDefault(require("../routes/instalacion"));
+const estado_1 = __importDefault(require("../routes/estado"));
+const plan_1 = __importDefault(require("../routes/plan"));
 class Index {
     constructor() {
         this.routes = {
+            planes: "/api/planes",
+            estado: "/api/estados",
+            instalaciones: "/api/instalaciones",
+            clientes: "/api/clientes",
             viviendas: "/api/viviendas",
             barrios: "/api/barrios"
         };
@@ -51,6 +59,10 @@ class Index {
         this.app.listen(this.PORT, () => { });
     }
     Routes() {
+        this.app.use(this.routes.planes, plan_1.default);
+        this.app.use(this.routes.estado, estado_1.default);
+        this.app.use(this.routes.instalaciones, instalacion_1.default);
+        this.app.use(this.routes.clientes, cliente_1.default);
         this.app.use(this.routes.viviendas, vivienda_1.default);
         this.app.use(this.routes.barrios, barrio_1.default);
     }
