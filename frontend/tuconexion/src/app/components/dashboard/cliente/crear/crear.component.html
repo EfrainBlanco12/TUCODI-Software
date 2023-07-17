@@ -1,0 +1,99 @@
+<div class="wraper">
+    <div class="container msg">
+        <!-- Resgitro de cliente -->
+        <div class="clientes">
+            <div class="header">
+                <img class="logo" routerLink="/dashboard" src="../../../../../assets/img/back.png" alt="back">
+                <h4>{{titulo}}</h4>
+                <img class="logo" routerLink="/dashboard/cliente/crud" src="../../../../../assets/img/closeBlack.png" alt="close">
+            </div>
+
+            <!-- Resgitro de viviendas -->
+            <div class="division"></div>
+            <h4>Información de la vivienda</h4>
+            <form [formGroup]="formularioVivienda" (ngSubmit)="submitFormulario()">
+                <div class="form">
+                    <label for="">Seleccionar Barrio</label> <br>
+                    <select class="select" formControlName="id_barrio">
+                        <option *ngFor="let barrio of barrios" [value]="barrio.id">{{barrio.nombre}}</option>
+                    </select>
+                </div>
+                <div class="form">
+                    <label for="">Dirección</label> <br>
+                    <input type="text" formControlName="direccion">
+                </div>
+                <!-- <div class="form">
+                    <label for="">Fachada</label> <br>
+                    <input class="file" type="file" accept="image/*" formControlName="fachada">
+                </div> -->
+                <div class="form">
+                    <label for="">Coordenada</label> <br>
+                    <input type="text" formControlName="coordenada">
+                </div>
+                <div class="form">
+                    <label for="">Numero de piso</label> <br>
+                    <input type="text" formControlName="numero_piso">
+                </div>
+            </form>
+
+            <!-- Formulario de instalacion -->
+            <form [formGroup]="formularioInstalacion">
+                <div class="division"></div>
+                <h4>Información de instalación</h4>
+                <div class="form">
+                    <label for="">Numero de nav</label> <br>
+                    <input type="text" formControlName="num_nav">
+                </div>
+                <div class="form">
+                    <label for="">Dirección IP</label> <br>
+                    <input type="text" formControlName="direccion_ip">
+                </div>
+                <div class="form">
+                    <label for="">fecha de instalación</label> <br>
+                    <input type="date" class="custom-input" formControlName="fecha_instalacion">
+                </div>
+            </form>
+
+            <!-- Formulario del cliente -->
+            <form [formGroup]="formularioCliente">
+                <div class="division"></div>
+                <h4>Información personal</h4>
+                <div class="form">
+                    <label for="">Seleccionar estado</label> <br>
+                    <select class="select" formControlName="id_estado">
+                        <option *ngFor="let estado of estados" [value]="estado.id">{{estado.nombre}}</option>
+                    </select>
+                </div>
+                <div class="form">
+                    <label for="">Seleccionar Plan</label> <br>
+                    <select class="select" formControlName="id_plan">
+                        <option *ngFor="let plan of planes" [value]="plan.id">{{plan.megas}}</option>
+                    </select>
+                </div>
+                <div class="form">
+                    <label for="">Cédula de ciudadania</label> <br>
+                    <input type="number" formControlName="id">
+                </div>
+                <div class="form">
+                    <label for="">Nombre</label> <br>
+                    <input type="text" formControlName="nombre">
+                </div>
+                <div class="form">
+                    <label for="">Apellido</label> <br>
+                    <input type="text" formControlName="apellido">
+                </div>
+                <div class="form">
+                    <label for="">Telefono</label> <br>
+                    <input type="text" formControlName="telefono">
+                </div>
+                <div class="form">
+                    <label for="">Email</label> <br>
+                    <input type="email" formControlName="correo">
+                </div>
+                <div class="form">
+                    <button type="submit" (click)="submitFormulario()">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

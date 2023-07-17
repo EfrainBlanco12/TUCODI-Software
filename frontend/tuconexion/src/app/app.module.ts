@@ -3,24 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { VerificarCorreoComponent } from './components/verificar-correo/verificar-correo.component';
-import { RecuperarPasswordComponent } from './components/recuperar-password/recuperar-password.component';
+import { DashboardModule } from './components/dashboard/dashboard.module';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { LoginModule } from './components/login/login.module';
+import { ClienteModule } from './components/dashboard/cliente/cliente.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    DashboardComponent,
-    VerificarCorreoComponent,
-    RecuperarPasswordComponent,
-    SpinnerComponent
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LoginModule,
+    DashboardModule,
+    ClienteModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

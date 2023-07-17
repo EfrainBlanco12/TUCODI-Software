@@ -1,22 +1,26 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { LoginComponent } from './components/login/login.component';
-import { RecuperarPasswordComponent } from './components/recuperar-password/recuperar-password.component';
-import { VerificarCorreoComponent } from './components/verificar-correo/verificar-correo.component';
+import {NgModule} from '@angular/core';
+import * as router from '@angular/router';
+import { CommonModule } from '@angular/common';
 
-const routes: Routes = [
-  { path: '', redirectTo : 'login', pathMatch: 'full'},
-  { path: 'login', component: LoginComponent},
-  { path: 'recuperar-password', component: RecuperarPasswordComponent},
-  { path: 'verificar-correo', component: VerificarCorreoComponent},
-  { path: 'dashboard', component: DashboardComponent},
-  { path: '**', redirectTo : 'login', pathMatch: 'full'},
+
+const routes: router.Routes = [
+  {path: '', 
+  redirectTo: '/login', pathMatch: "full"},
+
+  {path: 'login', 
+  loadChildren: () => import('../app/components/login/login.module').then(r => r.LoginModule)},
+
+  {path: 'dashboard', 
+  loadChildren: () => import('../app/components/dashboard/dashboard.module').then(r => r.DashboardModule)},
+
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    CommonModule,
+    router.RouterModule.forRoot(routes)],
+  exports: [router.RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
