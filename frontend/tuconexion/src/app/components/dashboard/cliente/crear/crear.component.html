@@ -1,20 +1,10 @@
 <div class="wraper">
     <div class="container msg">
-
-        <!-- Modal de mensaje GUARDAR -->
-        <div class="msg" *ngIf="mostrar">
-            <div class="header">
-                <img class="logo" routerLink="/dashboard/clientes/crud" src="../../../../../assets/img/closeBlack.png"
-                    alt="close">
-            </div>
-            <h3>Guardado exitoso</h3>
-        </div>
-
         <!-- Resgitro de cliente -->
         <div class="clientes">
             <div class="header">
                 <img class="logo" routerLink="/dashboard" src="../../../../../assets/img/back.png" alt="back">
-                <h4>Registro</h4>
+                <h4>{{titulo}}</h4>
                 <img class="logo" routerLink="/dashboard/cliente/crud" src="../../../../../assets/img/closeBlack.png" alt="close">
             </div>
 
@@ -32,10 +22,10 @@
                     <label for="">Dirección</label> <br>
                     <input type="text" formControlName="direccion">
                 </div>
-                <div class="form">
+                <!-- <div class="form">
                     <label for="">Fachada</label> <br>
                     <input class="file" type="file" accept="image/*" formControlName="fachada">
-                </div>
+                </div> -->
                 <div class="form">
                     <label for="">Coordenada</label> <br>
                     <input type="text" formControlName="coordenada">

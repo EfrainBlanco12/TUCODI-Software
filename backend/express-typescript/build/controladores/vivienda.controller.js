@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateVivienda = exports.deleteVivienda = exports.postVivienda = exports.getViviendas = void 0;
+exports.updateVivienda = exports.deleteVivienda = exports.postVivienda = exports.getViviendaById = exports.getViviendas = void 0;
 const vivienda_1 = require("../modelos/vivienda");
 // req -> recibo
 // res -> respuesta
@@ -24,6 +24,19 @@ const getViviendas = (_req, res, next) => __awaiter(void 0, void 0, void 0, func
     }
 });
 exports.getViviendas = getViviendas;
+const getViviendaById = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = req.params.id;
+    try {
+        // id db es igual al id que recibe
+        const vivienda = yield vivienda_1.Viviendas.findByPk(id);
+        res.json(vivienda);
+    }
+    catch (error) {
+        next(error);
+        console.log(error);
+    }
+});
+exports.getViviendaById = getViviendaById;
 const postVivienda = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
     try {

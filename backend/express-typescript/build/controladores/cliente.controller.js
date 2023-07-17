@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateCliente = exports.deleteCliente = exports.postCliente = exports.getClientes = void 0;
+exports.updateCliente = exports.deleteCliente = exports.postCliente = exports.getClienteById = exports.getClientes = void 0;
 const cliente_1 = require("../modelos/cliente");
 const getClientes = (_req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -21,6 +21,19 @@ const getClientes = (_req, res, next) => __awaiter(void 0, void 0, void 0, funct
     }
 });
 exports.getClientes = getClientes;
+const getClienteById = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = req.params.id;
+    try {
+        // id db es igual al id que recibe
+        const cliente = yield cliente_1.Clientes.findByPk(id);
+        res.json(cliente);
+    }
+    catch (error) {
+        next(error);
+        console.log(error);
+    }
+});
+exports.getClienteById = getClienteById;
 const postCliente = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
     try {

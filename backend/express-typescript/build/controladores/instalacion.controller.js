@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateInstalacion = exports.deleteInstalacion = exports.postInstalacion = exports.getInstalaciones = void 0;
+exports.updateInstalacion = exports.deleteInstalacion = exports.postInstalacion = exports.getInstalacionById = exports.getInstalaciones = void 0;
 const instalacion_1 = require("../modelos/instalacion");
 const getInstalaciones = (_req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -21,6 +21,19 @@ const getInstalaciones = (_req, res, next) => __awaiter(void 0, void 0, void 0, 
     }
 });
 exports.getInstalaciones = getInstalaciones;
+const getInstalacionById = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = req.params.id;
+    try {
+        // id db es igual al id que recibe
+        const instalacion = yield instalacion_1.Instalaciones.findByPk(id);
+        res.json(instalacion);
+    }
+    catch (error) {
+        next(error);
+        console.log(error);
+    }
+});
+exports.getInstalacionById = getInstalacionById;
 const postInstalacion = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
     try {

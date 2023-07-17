@@ -14,6 +14,18 @@ export const getViviendas = async(_req:Request,res:Response,next:any) => {
     }
 }
 
+export const getViviendaById = async (req: Request, res: Response, next: any) => {
+    const id = req.params.id
+    try {
+        // id db es igual al id que recibe
+        const vivienda = await Viviendas.findByPk(id)
+        res.json(vivienda)
+    } catch (error) {
+        next(error)
+        console.log(error)
+    }
+}
+
 export const postVivienda =async (req: Request,res: Response,next:any) => {
     const {body} = req
     try {

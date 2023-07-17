@@ -4,7 +4,6 @@ import { InitialClienteComponent } from './initial-cliente/initial-cliente.compo
 import { CrudComponent } from './crud/crud.component';
 import { CrearComponent } from './crear/crear.component';
 import { ClienteRoutingModule } from './cliente-routing.module';
-import { EditarComponent } from './editar/editar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -14,8 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     InitialClienteComponent,
     CrudComponent,
-    CrearComponent,
-    EditarComponent
+    CrearComponent
   ],
   imports: [
     CommonModule,

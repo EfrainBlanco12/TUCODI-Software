@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { clienteModel } from 'src/app/modelos/cliente.modelo';
 import { ClientesService } from 'src/app/service/clientes.service';
+import { ViviendasService } from 'src/app/service/viviendas.service';
+import { InstalacionesService } from 'src/app/service/instalaciones.service';
 
 
 @Component({
@@ -10,34 +12,15 @@ import { ClientesService } from 'src/app/service/clientes.service';
 })
 export class CrudComponent implements OnInit {
 
-  // items: string[] = []; // Lista de elementos
-  // searchText: string = ''; // Texto de búsqueda
-
-  // filteredItems: string[] = []; // Lista filtrada de elementos
-
-  // constructor() { }
-
-  // ngOnInit() {
-  //   // Inicializar la lista de elementos
-  //   this.items = ['Elemento 1', 'Elemento 2', 'Elemento 3', 'Elemento 4'];
-  //   // Inicializar la lista filtrada con todos los elementos
-  //   this.filteredItems = [...this.items];
-  // }
-
-  // filterItems() {
-  //   // Filtrar la lista de elementos basado en el texto de búsqueda
-  //   this.filteredItems = this.items.filter(item =>
-  //     item.toLowerCase().includes(this.searchText.toLowerCase())
-  //   );
-  // }
-
   listaClientes: clienteModel [] = [];
   searchText: string = ''; // Texto de búsqueda
   filteredItems: any[] = []; // Lista filtrada de elementos
 
   constructor 
   (
-    private clienteService: ClientesService
+    private clienteService: ClientesService,
+    private viviendaService: ViviendasService,
+    private instalacionService: InstalacionesService
   ) {}
 
   ngOnInit(){
@@ -55,5 +38,39 @@ export class CrudComponent implements OnInit {
     .filter(cliente => cliente.id.toString().includes(this.searchText))
     .map(cliente => cliente.id);
   }
+  
+  borrarCliente(cliente: clienteModel) {
+    this.clienteService.deleteCliente(cliente.id).subscribe(
+      () => {
+        // Eliminar el cliente de la lista
+        this.listaClientes = this.listaClientes.filter(c => c.id !== cliente.id);
+        
+        // Eliminar la vivienda relacionada
+        this.viviendaService.deleteVivienda(cliente.id_vivienda).subscribe(
+          () => {
+            // Realizar acciones adicionales o mostrar mensajes de éxito
+          },
+          (error: any) => {
+            console.error('Error al borrar la vivienda:', error);
+          }
+        );
+        
+        // Eliminar la instalación relacionada
+        this.instalacionService.deleteInstalacion(cliente.id_instalacion).subscribe(
+          () => {
+            // Realizar acciones adicionales o mostrar mensajes de éxito
+            window.alert('Los datos del cliente se BORRARON correctamente');
+          },
+          (error: any) => {
+            console.error('Error al borrar la instalación:', error);
+          }
+        );
+      },
+      (error: any) => {
+        console.error('Error al borrar el cliente:', error);
+      }
+    );
+  }
+  
   
 }

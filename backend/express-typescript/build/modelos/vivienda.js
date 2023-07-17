@@ -21,9 +21,9 @@ exports.Viviendas = connectiondb_1.default.define("vivienda", {
     direccion: {
         type: sequelize_1.DataTypes.STRING
     },
-    fachada: {
-        type: sequelize_1.DataTypes.STRING
-    },
+    // fachada:{
+    //     type:DataTypes.STRING
+    // },
     coordenada: {
         type: sequelize_1.DataTypes.STRING
     },

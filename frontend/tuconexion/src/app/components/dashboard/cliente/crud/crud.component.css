@@ -24,17 +24,11 @@
 
 .botones{
     display: flex;
-    align-items: center;
-    justify-content: center;
+
 }
 
 @media screen and (max-width:414px){
     .wrapper{
         min-height: 914px;
-    }
-    
-    .telefono, .correo{
-        visibility: inherit;
-
     }
 }

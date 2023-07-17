@@ -5,7 +5,7 @@ class vivienda extends Model{
     id?:number;
     id_barrio?: number;
     direccion?: string;
-    fachada?: string;
+    // fachada?: string;
     coordenada?: string;
     numero_piso?: string;
 }
@@ -23,9 +23,9 @@ export const Viviendas = connectiondb.define<vivienda>("vivienda",{
     direccion:{
         type:DataTypes.STRING
     },
-    fachada:{
-        type:DataTypes.STRING
-    },
+    // fachada:{
+    //     type:DataTypes.STRING
+    // },
     coordenada:{
         type:DataTypes.STRING
     },

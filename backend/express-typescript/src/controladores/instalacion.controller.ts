@@ -10,6 +10,18 @@ export const getInstalaciones = async(_req:Request,res:Response,next:any) => {
     }
 }
 
+export const getInstalacionById = async (req: Request, res: Response, next: any) => {
+    const id = req.params.id
+    try {
+        // id db es igual al id que recibe
+        const instalacion = await Instalaciones.findByPk(id)
+        res.json(instalacion)
+    } catch (error) {
+        next(error)
+        console.log(error)
+    }
+}
+
 export const postInstalacion =async (req: Request,res: Response,next:any) => {
     const {body} = req
     try {

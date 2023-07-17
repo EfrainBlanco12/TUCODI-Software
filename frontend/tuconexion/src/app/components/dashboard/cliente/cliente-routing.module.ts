@@ -7,12 +7,13 @@ import { CrearComponent } from './crear/crear.component';
 
 const routesCliente: router.Routes = [
   {path: '',
-   children:[
+  children:[
     {path: '', component: InitialClienteComponent },
     {path: 'crud', component: CrudComponent },
     {path: 'crear', component: CrearComponent },
+    {path: 'editar/:id', component: CrearComponent},
     {path: '**', redirectTo:'cliente',pathMatch:'full'} 
-   ]}
+  ]}
 ];
 
 @NgModule({
